@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --emptyOutDir",
     "preview": "vite preview"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chrome": "^0.0.254",
     "typescript": "^5.3.3",
     "vite": "^5.0.10"
   }
