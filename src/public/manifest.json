@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Reading time",
+  "version": "1.0",
+  "description": "Add the reading time to Chrome Extension documentation articles",
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": [
+        "https://www.php.net/*"
+      ]
+    }
+  ]
+}
