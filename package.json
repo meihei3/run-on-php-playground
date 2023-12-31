@@ -7,7 +7,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --emptyOutDir",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "xo": "xo",
+    "xo:fix": "xo --fix"
   },
   "author": "",
   "license": "ISC",
