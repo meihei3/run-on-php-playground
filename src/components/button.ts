@@ -1,4 +1,4 @@
-import {css} from '@emotion/css'
+import {css} from '@emotion/css';
 
 const defaultText = 'Run in Playground';
 const defaultLink = 'https://php-play.dev/';
@@ -58,13 +58,14 @@ const styles: string = css`
 `;
 
 export function createButton({text = defaultText, link = defaultLink}: {
-    text?: string, link?: string
+	text?: string; link?: string;
 }): HTMLButtonElement {
-    const button: HTMLButtonElement = document.createElement('button');
-    button.innerText = text;
-    button.onclick = () => {
-        window.open(link);
-    };
-    button.className = styles;
-    return button;
+	const button: HTMLButtonElement = document.createElement('button');
+	button.textContent = text;
+	button.addEventListener('click', () => {
+		window.open(link);
+	});
+
+	button.className = styles;
+	return button;
 }
