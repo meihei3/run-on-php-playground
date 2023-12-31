@@ -1,3 +1,6 @@
+import {createButton} from "./components/button.ts";
+import {createContainer} from "./components/container.ts";
+
 // PHPコードの正規表現
 const phpCodeRegex: RegExp = /<\?php[\s\S]+?\?>/g;
 
@@ -28,6 +31,15 @@ function getPhpCodes(element: HTMLElement): string[] {
 // ページからPHPコードを取得
 const elements: NodeListOf<HTMLElement> = document.querySelectorAll('div.phpcode code');
 elements.forEach((element: HTMLElement) => {
+    // コンテナを作成
+    const container: HTMLDivElement = createContainer();
+    // 元の要素をコンテナに移動
+    element.parentNode?.insertBefore(container, element);
+    container.appendChild(element);
+
+    // ボタンを作成してコンテナに追加
+    element.appendChild(createButton());
+
     getPhpCodes(element).forEach((code) => {
         console.log(code)
     });
