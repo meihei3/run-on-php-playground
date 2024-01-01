@@ -1,6 +1,6 @@
 import {css} from '@emotion/css';
 
-const defaultText = 'Run in Playground';
+const defaultText = 'Run on Playground';
 const defaultLink = 'https://php-play.dev/';
 
 const styles: string = css`
