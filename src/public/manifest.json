@@ -1,8 +1,15 @@
 {
   "manifest_version": 3,
-  "name": "Reading time",
+  "name": "Run on PHP Playground",
   "version": "1.0",
-  "description": "Add the reading time to Chrome Extension documentation articles",
+  "version_name": "1.0 beta",
+  "description": "Open PHP Playground and run the sample code from php.net.",
+  "icons": {
+    "16": "images/icon@16px.png",
+    "32": "images/icon@32px.png",
+    "48": "images/icon@48px.png",
+    "128": "images/icon@128px.png"
+  },
   "content_scripts": [
     {
       "js": ["content.js"],
