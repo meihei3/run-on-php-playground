@@ -2,6 +2,10 @@
 
 Open PHP Playground and run the sample code from php.net.
 
+**Install from Chrome Web Store**  
+
+https://chromewebstore.google.com/detail/ddhmobhdfmhfckpkedkompdjdmpapeng
+
 ## How to use
 
 1. Open https://www.php.net/*
