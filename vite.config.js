@@ -11,7 +11,12 @@ export default defineConfig(_ => ({
 			},
 			output: {
 				entryFileNames: '[name].js',
-				assetFileNames: 'styles.css',
+				assetFileNames: (assetInfo) => {
+					if (assetInfo.name.endsWith('.css')) {
+						return 'styles.css';
+					}
+					return assetInfo.name;
+				},
 			},
 		},
 	},
