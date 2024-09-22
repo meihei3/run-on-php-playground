@@ -1,5 +1,9 @@
 {
-  "envs": [
-    "browser"
-  ]
+  "extends": [
+    "xo",
+    "xo-typescript"
+  ],
+  "rules": {
+    "n/file-extension-in-import": "off"
+  }
 }

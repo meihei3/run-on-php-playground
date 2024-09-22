@@ -1,6 +1,6 @@
 import * as lzstring from 'lz-string';
-import {createButton} from './components/button.js';
-import {createContainer} from './components/container.js';
+import {createButton} from './components/button.ts';
+import {createContainer} from './components/container.ts';
 
 // PHPコードの正規表現
 const phpCodeRegex = /<\?php[\s\S]+?\?>/g;
