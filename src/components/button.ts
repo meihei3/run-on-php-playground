@@ -1,4 +1,4 @@
-import {css} from '@emotion/css';
+import {css} from '@linaria/core';
 
 const defaultText = 'Run on Playground';
 const defaultLink = 'https://php-play.dev/';
@@ -30,28 +30,28 @@ const styles: string = css`
     vertical-align: middle;
     white-space: nowrap;
 
-    :focus:not(:focus-visible) {
+    &:focus:not(:focus-visible) {
         box-shadow: none;
         outline: none;
     }
 
-    :hover {
+    &:hover {
         background-color: #2c974b;
     }
 
-    :focus {
+    &:focus {
         box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
         outline: none;
     }
 
-    :disabled {
+    &:disabled {
         background-color: #94d3a2;
         border-color: rgba(27, 31, 35, .1);
         color: rgba(255, 255, 255, .8);
         cursor: default;
     }
 
-    :active {
+    &:active {
         background-color: #298e46;
         box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
     }

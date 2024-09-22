@@ -12,7 +12,12 @@
   },
   "content_scripts": [
     {
-      "js": ["content.js"],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
       "matches": [
         "https://www.php.net/*"
       ]

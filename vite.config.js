@@ -1,4 +1,5 @@
 import {defineConfig} from 'vite';
+import linaria from '@wyw-in-js/vite';
 
 export default defineConfig(_ => ({
 	root: 'src',
@@ -10,7 +11,9 @@ export default defineConfig(_ => ({
 			},
 			output: {
 				entryFileNames: '[name].js',
+				assetFileNames: 'styles.css',
 			},
 		},
 	},
+	plugins: [linaria()],
 }));
