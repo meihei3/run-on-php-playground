@@ -1,5 +1,6 @@
 import {defineConfig} from 'vite';
 import linaria from '@wyw-in-js/vite';
+import {manifestPlugin} from './plugins/manifest-plugin/manifest-plugin.ts';
 
 export default defineConfig(_ => ({
 	root: 'src',
@@ -11,9 +12,18 @@ export default defineConfig(_ => ({
 			},
 			output: {
 				entryFileNames: '[name].js',
-				assetFileNames: 'styles.css',
+				assetFileNames(assetInfo) {
+					if (assetInfo.name.endsWith('.css')) {
+						return 'styles.css';
+					}
+
+					return assetInfo.name;
+				},
 			},
 		},
 	},
-	plugins: [linaria()],
+	plugins: [
+		linaria(),
+		manifestPlugin(),
+	],
 }));
