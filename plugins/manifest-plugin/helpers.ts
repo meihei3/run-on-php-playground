@@ -29,3 +29,4 @@ function getVersionFromGitTag(): VersionResult {
 }
 
 export {getVersionFromGitTag};
+export type {VersionResult};

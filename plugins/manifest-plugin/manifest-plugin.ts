@@ -2,20 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import {type Plugin} from 'vite';
-import {getVersionFromGitTag} from './helpers.ts';
-
-function replace(manifest: string): string {
-	const v = getVersionFromGitTag();
-
-	manifest = manifest.replace(/"version":\s*"__VERSION__"/, `"version": "${v.version.major}.${v.version.minor}"`);
-	manifest = manifest.replace(/"version_name":\s*"__VERSION_NAME__"/, `"version_name": "${v.versionName.replace(/^v/, '')}"`);
-
-	return manifest;
-}
+import {getVersionFromGitTag, type VersionResult} from './helpers.ts';
 
 function manifestPlugin(
 	inputManifestFilename = 'src/manifest.json',
 	outputManifestFilename = 'dist/manifest.json',
+	v: VersionResult = getVersionFromGitTag(),
 ): Plugin {
 	return {
 		name: 'manifest-plugin',
@@ -31,8 +23,9 @@ function manifestPlugin(
 
 			let manifest = fs.readFileSync(inputPath, 'utf8');
 
-			// メインの処理
-			manifest = replace(manifest);
+			// テンプレートの置換
+			manifest = manifest.replace(/__VERSION__/, `${v.version.major}.${v.version.minor}`);
+			manifest = manifest.replace(/__VERSION_NAME__/, v.versionName.replace(/^v/, ''));
 
 			// Manifest.json の出力
 			fs.writeFileSync(outputPath, manifest, 'utf8');
