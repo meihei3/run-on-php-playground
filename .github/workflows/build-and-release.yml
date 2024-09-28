@@ -1,0 +1,30 @@
+name: Build and Release on Tag
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+
+      - name: Archive Production Build
+        run: |
+          tar -czf ${{github.ref_name}}.tar.gz ./dist
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{github.ref_name}}.tar.gz
