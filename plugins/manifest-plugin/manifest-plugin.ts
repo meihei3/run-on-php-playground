@@ -8,7 +8,7 @@ function replace(manifest: string): string {
 	const v = getVersionFromGitTag();
 
 	manifest = manifest.replace(/"version":\s*"__VERSION__"/, `"version": "${v.version.major}.${v.version.minor}"`);
-	manifest = manifest.replace(/"version_name":\s*"__VERSION_NAME__"/, `"version_name": "${v.versionName}"`);
+	manifest = manifest.replace(/"version_name":\s*"__VERSION_NAME__"/, `"version_name": "${v.versionName.replace(/^v/, '')}"`);
 
 	return manifest;
 }
