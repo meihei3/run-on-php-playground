@@ -16,8 +16,8 @@ importers:
         specifier: ^6.2.0
         version: 6.2.0
       '@types/chrome':
-        specifier: ^0.0.277
-        version: 0.0.277
+        specifier: ^0.0.279
+        version: 0.0.279
       '@wyw-in-js/vite':
         specifier: ^0.5.4
         version: 0.5.4(typescript@5.6.2)(vite@5.4.8(@types/node@22.5.5)(terser@5.33.0))
@@ -426,8 +426,8 @@ packages:
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
-  '@types/chrome@0.0.277':
-    resolution: {integrity: sha512-qoTgBcDWblSsX+jvFnpUlLUE3LAuOhZfBh9MyMWMQHDsQiYVgBvdZWu9COrdB9+aNnInEyXcFgfc2HE16sdSYQ==}
+  '@types/chrome@0.0.279':
+    resolution: {integrity: sha512-wl0IxQ2OQiMazPZM5LimHQ7Jwd72/O8UvvzyptplXT2S4eUqXH5C0n8S+v8PtKhyX89p0igCPpNy3Bwksyk57g==}
 
   '@types/eslint@8.56.12':
     resolution: {integrity: sha512-03ruubjWyOHlmljCVoxSuNDdmfZDzsrrz0P2LeJsOXr+ZwFQ+0yQIwNCwt/GYhV7Z31fgtXJTAEs+FYlEL851g==}
@@ -1103,6 +1103,7 @@ packages:
   eslint@8.57.1:
     resolution: {integrity: sha512-ypowyDxpVSYpkXr9WPv2PAZCtNip1Mv5KTW0SCurXv/9iOpcrH9PaqUElksqEB6pChqHGDRCFTyrZlGhnLNGiA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   esm-utils@4.3.0:
@@ -2714,7 +2715,7 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@types/chrome@0.0.277':
+  '@types/chrome@0.0.279':
     dependencies:
       '@types/filesystem': 0.0.36
       '@types/har-format': 1.2.15
