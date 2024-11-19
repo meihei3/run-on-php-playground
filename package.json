@@ -16,7 +16,7 @@
   "devDependencies": {
     "@linaria/core": "^6.2.0",
     "@types/chrome": "^0.0.283",
-    "@wyw-in-js/vite": "^0.5.4",
+    "@wyw-in-js/vite": "^0.5.5",
     "typescript": "^5.6.3",
     "vite": "^5.4.11",
     "xo": "^0.59.3"
