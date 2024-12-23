@@ -18,7 +18,7 @@
     "@types/chrome": "^0.0.287",
     "@wyw-in-js/vite": "^0.5.5",
     "typescript": "^5.7.2",
-    "vite": "^6.0.3",
+    "vite": "^6.0.5",
     "xo": "^0.60.0"
   },
   "dependencies": {
