@@ -17,7 +17,7 @@
     "@linaria/core": "^6.2.0",
     "@types/chrome": "^0.0.290",
     "@wyw-in-js/vite": "^0.5.5",
-    "typescript": "^5.7.2",
+    "typescript": "^5.7.3",
     "vite": "^6.0.7",
     "xo": "^0.60.0"
   },
