@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@linaria/core": "^6.2.0",
+    "@linaria/core": "^6.3.0",
     "@types/chrome": "^0.0.308",
     "@wyw-in-js/vite": "^0.5.5",
     "typescript": "^5.8.2",
