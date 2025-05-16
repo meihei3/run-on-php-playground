@@ -16,17 +16,17 @@ importers:
         specifier: ^6.3.0
         version: 6.3.0
       '@types/chrome':
-        specifier: ^0.0.320
-        version: 0.0.320
+        specifier: ^0.0.322
+        version: 0.0.322
       '@wyw-in-js/vite':
         specifier: ^0.6.0
-        version: 0.6.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.11)(terser@5.39.0))
+        version: 0.6.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0))
       typescript:
         specifier: ^5.8.3
         version: 5.8.3
       vite:
         specifier: ^6.3.5
-        version: 6.3.5(@types/node@22.15.11)(terser@5.39.0)
+        version: 6.3.5(@types/node@22.15.17)(terser@5.39.0)
       xo:
         specifier: ^0.60.0
         version: 0.60.0(@types/eslint@8.56.12)(webpack@5.94.0)
@@ -468,8 +468,8 @@ packages:
     resolution: {integrity: sha512-tlqY9xq5ukxTUZBmoOp+m61cqwQD5pHJtFY3Mn8CA8ps6yghLH/Hw8UPdqg4OLmFW3IFlcXnQNmo/dh8HzXYIQ==}
     engines: {node: '>=18'}
 
-  '@types/chrome@0.0.320':
-    resolution: {integrity: sha512-LD0O6hqayM4/InMUB2fOGSh7lFkUlusa40mk6iUAxs0RHfvRYjjsDoRGsDh2DEJWP4Ckccf00FVhkhDHHIqy7g==}
+  '@types/chrome@0.0.322':
+    resolution: {integrity: sha512-glbRm82TzLLJfi3ttlnn7HR9KIX5OYeTo9Xug0Hna03JvaqNipZT+P/q/O5kxOvUQqKUqmn8NAOrcRSG6BOQAw==}
 
   '@types/eslint@8.56.12':
     resolution: {integrity: sha512-03ruubjWyOHlmljCVoxSuNDdmfZDzsrrz0P2LeJsOXr+ZwFQ+0yQIwNCwt/GYhV7Z31fgtXJTAEs+FYlEL851g==}
@@ -492,8 +492,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@22.15.11':
-    resolution: {integrity: sha512-rlyK0vuU7VLEYQfXuC7QTFxDvkb6tKhDI7wR4r6ZzM0k8BJd44W0jxo6xmUjqSs4AlYmiYfLJU2f0pAG/FtCRw==}
+  '@types/node@22.15.17':
+    resolution: {integrity: sha512-wIX2aSZL5FE+MR0JlvF87BNVrtFWf6AE6rxSE9X7OwnVvoyCQjpzSRJ+M87se/4QCkCiebQAqrJ0y6fwIyi7nw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -941,8 +941,8 @@ packages:
   electron-to-chromium@1.5.123:
     resolution: {integrity: sha512-refir3NlutEZqlKaBLK0tzlVLe5P2wDKS7UQt/3SpibizgsRAPOsqQC3ffw1nlv3ze5gjRQZYHoPymgVZkplFA==}
 
-  electron-to-chromium@1.5.150:
-    resolution: {integrity: sha512-rOOkP2ZUMx1yL4fCxXQKDHQ8ZXwisb2OycOQVKHgvB3ZI4CvehOd4y2tfnnLDieJ3Zs1RL1Dlp3cMkyIn7nnXA==}
+  electron-to-chromium@1.5.152:
+    resolution: {integrity: sha512-xBOfg/EBaIlVsHipHl2VdTPJRSvErNUaqW8ejTq5OlOlIYx1wOllCHsAvAIrr55jD1IYEfdR86miUEt8H5IeJg==}
 
   electron-to-chromium@1.5.63:
     resolution: {integrity: sha512-ddeXKuY9BHo/mw145axlyWjlJ1UBt4WK3AlvkT7W2AbqfRQoacVoRUCF6wL3uIx/8wT9oLKXzI+rFqHHscByaA==}
@@ -2865,7 +2865,7 @@ snapshots:
 
   '@sindresorhus/merge-streams@4.0.0': {}
 
-  '@types/chrome@0.0.320':
+  '@types/chrome@0.0.322':
     dependencies:
       '@types/filesystem': 0.0.36
       '@types/har-format': 1.2.16
@@ -2889,7 +2889,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@22.15.11':
+  '@types/node@22.15.17':
     dependencies:
       undici-types: 6.21.0
 
@@ -3090,11 +3090,11 @@ snapshots:
       - supports-color
       - typescript
 
-  '@wyw-in-js/vite@0.6.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.11)(terser@5.39.0))':
+  '@wyw-in-js/vite@0.6.0(typescript@5.8.3)(vite@6.3.5(@types/node@22.15.17)(terser@5.39.0))':
     dependencies:
       '@wyw-in-js/shared': 0.6.0
       '@wyw-in-js/transform': 0.6.0(typescript@5.8.3)
-      vite: 6.3.5(@types/node@22.15.11)(terser@5.39.0)
+      vite: 6.3.5(@types/node@22.15.17)(terser@5.39.0)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -3252,7 +3252,7 @@ snapshots:
   browserslist@4.24.5:
     dependencies:
       caniuse-lite: 1.0.30001717
-      electron-to-chromium: 1.5.150
+      electron-to-chromium: 1.5.152
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.24.5)
 
@@ -3416,7 +3416,7 @@ snapshots:
 
   electron-to-chromium@1.5.123: {}
 
-  electron-to-chromium@1.5.150: {}
+  electron-to-chromium@1.5.152: {}
 
   electron-to-chromium@1.5.63: {}
 
@@ -4251,7 +4251,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.15.11
+      '@types/node': 22.15.17
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -4954,7 +4954,7 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vite@6.3.5(@types/node@22.15.11)(terser@5.39.0):
+  vite@6.3.5(@types/node@22.15.17)(terser@5.39.0):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.4(picomatch@4.0.2)
@@ -4963,7 +4963,7 @@ snapshots:
       rollup: 4.40.1
       tinyglobby: 0.2.13
     optionalDependencies:
-      '@types/node': 22.15.11
+      '@types/node': 22.15.17
       fsevents: 2.3.3
       terser: 5.39.0
 
