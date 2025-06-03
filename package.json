@@ -19,7 +19,7 @@
     "@wyw-in-js/vite": "^0.6.0",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
-    "xo": "^0.60.0"
+    "xo": "^1.0.5"
   },
   "dependencies": {
     "lz-string": "^1.5.0"
