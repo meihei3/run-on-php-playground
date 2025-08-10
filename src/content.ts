@@ -45,14 +45,11 @@ function processPhpElements(): void {
 			container.append(element);
 
 			// Create button and add to container (async)
-			// eslint-disable-next-line promise/prefer-await-to-then
-			void createButton({code: compressedCode})
-				// eslint-disable-next-line promise/prefer-await-to-then
-				.then(buttonContainer => {
+			void (async () => {
+				try {
+					const buttonContainer = await createButton({code: compressedCode});
 					element.append(buttonContainer);
-				})
-				// eslint-disable-next-line promise/prefer-await-to-then
-				.catch((error: unknown) => {
+				} catch (error: unknown) {
 					console.error('Failed to create button:', error);
 					// Fallback: create simple button
 					const url = new URL(baseUrl);
@@ -64,7 +61,8 @@ function processPhpElements(): void {
 					});
 					fallbackButton.style.cssText = 'position: absolute; right: 0; top: 0;';
 					element.append(fallbackButton);
-				});
+				}
+			})();
 		}
 	}
 }
