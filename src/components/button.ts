@@ -166,15 +166,41 @@ const optionStyles = css`
 	font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	color: #24292f;
+	transition: all 0.1s ease-in-out;
 
 	&:hover {
-		background-color: #0969da;
+		background-color: #2ea44f;
 		color: white;
 	}
 
+	&:active {
+		background-color: #298e46;
+	}
+
 	&.selected {
-		background-color: #dbeafe;
+		background-color: #f0fdf4;
+		color: #166534;
 		font-weight: 600;
+		position: relative;
+
+		&::after {
+			content: "✓";
+			position: absolute;
+			right: 8px;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #166534;
+			font-weight: bold;
+		}
+
+		&:hover {
+			background-color: #2ea44f;
+			color: white;
+
+			&::after {
+				color: white;
+			}
+		}
 	}
 `;
 
