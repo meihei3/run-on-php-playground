@@ -21,11 +21,11 @@ function manifestPlugin(
 				throw new Error('manifest.template.json not found');
 			}
 
-			let manifest = fs.readFileSync(inputPath, 'utf8');
+			let manifest = String(fs.readFileSync(inputPath, 'utf8'));
 
 			// テンプレートの置換
-			manifest = manifest.replace(/__VERSION__/, `${v.version.major}.${v.version.minor}`);
-			manifest = manifest.replace(/__VERSION_NAME__/, v.versionName.replace(/^v/, ''));
+			manifest = manifest.replaceAll('__VERSION__', `${v.version.major}.${v.version.minor}`);
+			manifest = manifest.replaceAll('__VERSION_NAME__', v.versionName.replace(/^v/, ''));
 
 			// Manifest.json の出力
 			fs.writeFileSync(outputPath, manifest, 'utf8');

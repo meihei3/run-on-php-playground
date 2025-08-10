@@ -11,11 +11,12 @@ type VersionResult = {
 };
 
 function getVersionFromGitTag(): VersionResult {
-	const version = execSync('git describe --tags --abbrev=0').toString().trim();
+	const versionOutput = execSync('git describe --tags --abbrev=0', {encoding: 'utf8'});
+	const version = String(versionOutput).trim();
 
 	const match = /^v?(\d+)\.(\d+)/.exec(version);
 	if (!match) {
-		throw new Error('Invalid version format');
+		throw new Error(`Invalid version format: ${version}`);
 	}
 
 	const major = Number.parseInt(match[1], 10);
