@@ -5,5 +5,13 @@
   ],
   "rules": {
     "n/file-extension-in-import": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["**/content.ts"],
+      "rules": {
+        "promise/prefer-await-to-then": "off"
+      }
+    }
+  ]
 }
