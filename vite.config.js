@@ -1,6 +1,6 @@
 import {defineConfig} from 'vite';
 import linaria from '@wyw-in-js/vite';
-import {manifestPlugin} from './plugins/manifest-plugin/manifest-plugin.ts';
+import {manifestPlugin} from './plugins/manifest-plugin/manifest-plugin.js';
 
 export default defineConfig(_ => ({
 	root: 'src',
