@@ -4,11 +4,17 @@
     "xo-typescript"
   ],
   "rules": {
-    "n/file-extension-in-import": "off"
+    "n/file-extension-in-import": "off",
+    "unicorn/prefer-add-event-listener": "off",
+    "@typescript-eslint/no-loop-func": "off",
+    "promise/prefer-await-to-then": "off",
+    "no-await-in-loop": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "unicorn/prefer-top-level-await": "off"
   },
   "overrides": [
     {
-      "files": ["**/content.ts"],
+      "files": ["**/*.ts"],
       "rules": {
         "promise/prefer-await-to-then": "off"
       }

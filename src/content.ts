@@ -45,10 +45,13 @@ function processPhpElements(): void {
 			container.append(element);
 
 			// Create button and add to container (async)
-			createButton({code: compressedCode})
+			// eslint-disable-next-line promise/prefer-await-to-then
+			void createButton({code: compressedCode})
+				// eslint-disable-next-line promise/prefer-await-to-then
 				.then(buttonContainer => {
 					element.append(buttonContainer);
 				})
+				// eslint-disable-next-line promise/prefer-await-to-then
 				.catch((error: unknown) => {
 					console.error('Failed to create button:', error);
 					// Fallback: create simple button

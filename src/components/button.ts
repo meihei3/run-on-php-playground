@@ -237,6 +237,41 @@ export async function createButton({
 	dropdown.className = dropdownStyles;
 
 	// Create option buttons
+	const createOptionClickHandler = (versionValue: string, option: HTMLButtonElement) => async (event: Event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
+		// Update selected version in storage
+		await setSelectedVersion(versionValue);
+
+		// Update current version
+		currentVersion = versionValue;
+
+		// Update version button text
+		versionButton.textContent = versionValue;
+
+		// Update selected state
+		for (const opt of dropdown.querySelectorAll('button')) {
+			opt.classList.remove('selected');
+		}
+
+		option.classList.add('selected');
+
+		// Update main button URL
+		if (code) {
+			const newUrl = createPlaygroundUrl(code, versionValue);
+			button.addEventListener('click', () => window.open(newUrl));
+		}
+
+		// Close dropdown
+		dropdown.classList.remove('open');
+
+		// Dispatch custom event to sync other buttons
+		document.dispatchEvent(new CustomEvent('php-version-changed', {
+			detail: {version: versionValue},
+		}));
+	};
+
 	for (const version of phpVersions) {
 		const option = document.createElement('button');
 		option.className = optionStyles;
@@ -246,41 +281,7 @@ export async function createButton({
 			option.classList.add('selected');
 		}
 
-		option.addEventListener('click', async event => {
-			event.preventDefault();
-			event.stopPropagation();
-
-			// Update selected version in storage
-			await setSelectedVersion(version.value);
-
-			// Update current version
-			currentVersion = version.value;
-
-			// Update version button text
-			versionButton.textContent = version.value;
-
-			// Update selected state
-			for (const opt of dropdown.querySelectorAll('button')) {
-				opt.classList.remove('selected');
-			}
-
-			option.classList.add('selected');
-
-			// Update main button URL
-			if (code) {
-				const newUrl = createPlaygroundUrl(code, version.value);
-				button.onclick = () => window.open(newUrl);
-			}
-
-			// Close dropdown
-			dropdown.classList.remove('open');
-
-			// Dispatch custom event to sync other buttons
-			document.dispatchEvent(new CustomEvent('php-version-changed', {
-				detail: {version: version.value}
-			}));
-		});
-
+		option.addEventListener('click', createOptionClickHandler(version.value, option));
 		dropdown.append(option);
 	}
 
@@ -294,9 +295,9 @@ export async function createButton({
 	// Set up main button click handler
 	if (code) {
 		const url = createPlaygroundUrl(code, currentVersion);
-		button.onclick = () => window.open(url);
+		button.addEventListener('click', () => window.open(url));
 	} else {
-		button.onclick = () => window.open(link);
+		button.addEventListener('click', () => window.open(link));
 	}
 
 	// Close dropdown when clicking outside
@@ -308,7 +309,7 @@ export async function createButton({
 
 	// Listen for version changes from other buttons
 	document.addEventListener('php-version-changed', (event: Event) => {
-		const customEvent = event as CustomEvent;
+		const customEvent = event as CustomEvent<{version: string}>;
 		const newVersion = customEvent.detail.version;
 		if (newVersion !== currentVersion) {
 			// Update current version
@@ -329,7 +330,7 @@ export async function createButton({
 			// Update main button URL
 			if (code) {
 				const newUrl = createPlaygroundUrl(code, newVersion);
-				button.onclick = () => window.open(newUrl);
+				button.addEventListener('click', () => window.open(newUrl));
 			}
 		}
 	});
