@@ -2,49 +2,71 @@ import * as lzstring from 'lz-string';
 import {createButton} from './components/button.ts';
 import {createContainer} from './components/container.ts';
 
-// PHPコードの正規表現
+// Regular expression for PHP code
 const phpCodeRegex = /<\?php[\s\S]+?\?>/g;
 // Base URL
 const baseUrl = 'https://php-play.dev/';
 
-// 要素からPHPコードを取得する
+// Extract PHP codes from HTML element
 function getPhpCodes(element: HTMLElement): string[] {
-	// 要素をクローン
+	// Clone the element
 	const cloneElement: Node = element.cloneNode(true);
 	if (!(cloneElement instanceof HTMLElement)) {
 		return [];
 	}
 
-	// Brタグを改行に変換
+	// Convert <br> tags to newlines
 	cloneElement.innerHTML = cloneElement.innerHTML.replaceAll('<br>', '\n');
-	// テキストを取得
+	// Get text content
 	const text = cloneElement.textContent;
 
-	// PHPコードを取得
+	// Extract PHP code
 	const phpCode = text?.match(phpCodeRegex);
 	if (!phpCode) {
 		return [];
 	}
 
-	// `?>` は削除
+	// Remove trailing `?>`
 	return phpCode.map(code => code.replace(/\?>$/, ''));
 }
 
-// ページからPHPコードを取得
-const elements: NodeListOf<HTMLElement> = document.querySelectorAll('div.phpcode code');
-for (const element of elements) {
-	for (const code of getPhpCodes(element)) {
-		// URLを作成
-		const url = new URL(baseUrl);
-		url.searchParams.append('c', lzstring.compressToEncodedURIComponent(code));
+// Process PHP code elements on the page
+function processPhpElements(): void {
+	const elements: NodeListOf<HTMLElement> = document.querySelectorAll('div.phpcode code');
+	for (const element of elements) {
+		for (const code of getPhpCodes(element)) {
+			// Get compressed code
+			const compressedCode = lzstring.compressToEncodedURIComponent(code);
 
-		// コンテナを作成
-		const container: HTMLDivElement = createContainer();
-		// 元の要素をコンテナに移動
-		element.parentNode?.insertBefore(container, element);
-		container.append(element);
+			// Create container
+			const container: HTMLDivElement = createContainer();
+			// Move original element to container
+			element.parentNode?.insertBefore(container, element);
+			container.append(element);
 
-		// ボタンを作成してコンテナに追加
-		element.append(createButton({link: url.toString()}));
+			// Create button and add to container (async)
+			void (async () => {
+				try {
+					const buttonContainer = await createButton({code: compressedCode});
+					element.append(buttonContainer);
+				} catch (error: unknown) {
+					console.error('Failed to create button:', error);
+					// Fallback: create simple button
+					const url = new URL(baseUrl);
+					url.searchParams.append('c', compressedCode);
+					const fallbackButton = document.createElement('button');
+					fallbackButton.textContent = 'Run on Playground';
+					fallbackButton.addEventListener('click', () => {
+						window.open(url.toString());
+					});
+					fallbackButton.style.cssText = 'position: absolute; right: 0; top: 0;';
+					element.append(fallbackButton);
+				}
+			})();
+		}
 	}
 }
+
+// Initialize the processing
+processPhpElements();
+
