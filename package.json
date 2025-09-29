@@ -15,11 +15,11 @@
   "license": "ISC",
   "devDependencies": {
     "@linaria/core": "^6.3.0",
-    "@types/chrome": "^0.1.9",
-    "@types/node": "^24.3.1",
+    "@types/chrome": "^0.1.14",
+    "@types/node": "^24.6.0",
     "@wyw-in-js/vite": "^0.7.0",
     "typescript": "^5.9.2",
-    "vite": "^7.1.5",
+    "vite": "^7.1.7",
     "xo": "^1.2.2"
   },
   "dependencies": {
